@@ -6,9 +6,9 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["Shopping.API/Shopping.API.csproj", "Shopping.API/"]
+COPY ["Shopping/Shopping.API/Shopping.API.csproj", "Shopping.API/"]
 RUN dotnet restore "Shopping.API/Shopping.API.csproj"
-COPY . .
+COPY ./Shopping/Shopping.API/ ./Shopping.API/
 WORKDIR "/src/Shopping.API"
 RUN dotnet build "Shopping.API.csproj" -c Release -o /app/build
 
